@@ -151,8 +151,8 @@ $("#contact").submit(function(e) {
     var data = {
     	id: 1,
         name: $("#name").val(),
-        email: $("#email").val(),
-        password: 'ssethiya',
+        emailId: $("#email").val(),
+        password: "ssethiya",
         message: $("#message").val()
     };
 
