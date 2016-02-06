@@ -41,21 +41,31 @@ public class UserController {
 				) throws IOException{*/
 		Gson gson = new Gson();
 		BufferedReader reader = aRequest.getReader();
-		UserDetails lUserDetails = gson.fromJson(reader, UserDetails.class);
-		System.out.println(aRequest+" "+reader.toString());
+		 Map messageObjMap = gson.fromJson(reader, Map.class);
+		 //String type = messageObjMap.get("messageType").toString();
+
+		 System.out.println("---"+messageObjMap);
+		//UserDetails lUserDetails = gson.fromJson(reader, UserDetails.class);
 		
 		/*int id = Integer.parseInt(aRequest.getParameter("id"));
 		String name =aRequest.getParameter("name");
 		String password = aRequest.getParameter("password");
 		String emailId = aRequest.getParameter("email");
-		String message = aRequest.getParameter("message");
-		
-		UserDetails lUserDetails = new UserDetails(); 
+		String message = aRequest.getParameter("message");*/
+		 UserDetails lUserDetails =new UserDetails();
+		 
+		int id =  Integer.parseInt((String) messageObjMap.get("id"));
+		String name =(String) messageObjMap.get("name");
+		String password = (String) messageObjMap.get("password");
+		String emailId = (String) messageObjMap.get("emailId");
+		String message = (String) messageObjMap.get("message");
+		 
+		System.out.println(name+" "+emailId+" "+password+" "+message);
 		lUserDetails.setId(id);
 		lUserDetails.setEmailId(emailId);
 		lUserDetails.setName(name);
 		lUserDetails.setPassword(password);
-		lUserDetails.setMessage(message);*/
+		lUserDetails.setMessage(message);
 		
 		System.out.println(lUserDetails);
 		
